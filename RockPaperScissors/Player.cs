@@ -14,5 +14,10 @@ namespace RockPaperScissors
         {
             return "";
         }
+
+        public void PlayerWin()
+        {
+            wins++;
+        }
     }
 }
