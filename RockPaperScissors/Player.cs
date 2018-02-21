@@ -31,5 +31,10 @@ namespace RockPaperScissors
         {
             return wins;
         }
+
+        public void ResetWins()
+        {
+            wins = 0;
+        }
     }
 }

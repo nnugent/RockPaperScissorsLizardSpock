@@ -8,7 +8,7 @@ namespace RockPaperScissors
         {
             Game game = new Game();
             game.GetUsers();
-            game.NextTurn();
+            game.Start();
         }
     }
 }
