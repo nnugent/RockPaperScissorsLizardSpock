@@ -7,7 +7,7 @@ namespace RockPaperScissors
     class ComputerPlayer : Player
     {
         List<string> nameOptions = new List<string> { "The World Destroyer", "Sheldon Cooper", "Darth Vader", "Obi-Wan Kenobi", "WunSwolBoi", "AyeNoDeWea"};
-        List<string> moveOptions = new List<string> { "Rock", "Paper", "Scissors", "Lizard", "Spock" };
+        List<string> moveOptions = new List<string> { "rock", "paper", "scissors", "lizard", "spock" };
         Random rng = new Random();
 
         public ComputerPlayer()

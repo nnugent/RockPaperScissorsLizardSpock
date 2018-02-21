@@ -26,7 +26,12 @@ namespace RockPaperScissors
         
         public void NextTurn()
         {
-            
+            while(player1.wins < 3 && player2.wins < 3)
+            {
+                player1.GetMove();
+                player2.GetMove();
+                CompareMoves();
+            }
         }
 
         public void CompareMoves()
@@ -38,27 +43,40 @@ namespace RockPaperScissors
             else if (player1.move == "rock" && (player2.move == "scissors" || player2.move == "lizard"))
             {
                 player1.wins++;
+                Console.WriteLine(player1.name + " chose " + player1.move + " and " + player2.name + " chose " + player2.move);
+                Console.WriteLine(player1.name + " won this round! Score: " + player1.name + " " + player1.wins + "  " + player2.name + " " + player2.wins);
             }
             else if (player1.move =="paper" && (player2.move == "rock" || player2.move == "spock"))
             {
                 player1.wins++;
+                Console.WriteLine(player1.name + " chose " + player1.move + " and " + player2.name + " chose " + player2.move);
+                Console.WriteLine(player1.name + " won this round! Score: " + player1.name + " " + player1.wins + "  " + player2.name + " " + player2.wins);
             }
             else if (player1.move == "scissors" && (player2.move == "paper" || player2.move == "lizard"))
             {
                 player1.wins++;
+                Console.WriteLine(player1.name + " chose " + player1.move + " and " + player2.name + " chose " + player2.move);
+                Console.WriteLine(player1.name + " won this round! Score: " + player1.name + " " + player1.wins + "  " + player2.name + " " + player2.wins);
             }
             else if (player1.move == "lizard" && (player2.move == "spock" || player2.move == "paper"))
             {
                 player1.wins++;
+                Console.WriteLine(player1.name + " chose " + player1.move + " and " + player2.name + " chose " + player2.move);
+                Console.WriteLine(player1.name + " won this round! Score: " + player1.name + " " + player1.wins + "  " + player2.name + " " + player2.wins);
             }
             else if (player1.move == "spock" && (player2.move == "scissors" || player2.move == "rock"))
             {
                 player1.wins++;
+                Console.WriteLine(player1.name + " chose " + player1.move + " and " + player2.name + " chose " + player2.move);
+                Console.WriteLine(player1.name + " won this round! Score: " + player1.name + " " + player1.wins + "  " + player2.name + " " + player2.wins);
             }
             else
             {
                 player2.wins++;
+                Console.WriteLine(player1.name + " chose " + player1.move + " and " + player2.name + " chose " + player2.move);
+                Console.WriteLine(player2.name + " won this round! Score: " + player1.name + " " + player1.wins + "  " + player2.name + " " + player2.wins);
             }
+            Console.WriteLine("\n\n");
         }
     }
 }
