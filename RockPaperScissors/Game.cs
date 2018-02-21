@@ -25,15 +25,17 @@ namespace RockPaperScissors
         }
         
         public void Start()
-        {
-            ResetWins();
+        { 
             do
             {
+                ResetWins();
                 while (player1.GetWins() < 3 && player2.GetWins() < 3)
                 {
                     GetMoves();
+                    DisplayChoices();
                     DisplayTurnWinner(GetTurnWinner());
                 }
+                DisplayRoundWinner();
             } while (PlayAgain());
         }
 
@@ -90,10 +92,11 @@ namespace RockPaperScissors
             }
             else
             {
-                Console.WriteLine(player.GetName() + " won this round!! \n");
+                Console.WriteLine(player.GetName() + " won this round!!!");
                 Console.WriteLine(player1.GetName() + ": " + player1.GetWins() + "     " + player2.GetName() + ": " + player2.GetWins());
             }
-            Console.WriteLine("\n\n");
+            Console.ReadLine();
+            Console.Clear();
         }
 
         public void DisplayRoundWinner()
@@ -106,14 +109,16 @@ namespace RockPaperScissors
             {
                 Console.WriteLine(player2.GetName() + " is the Winner!!!");
             }
+            Console.ReadLine();
         }
 
         public bool PlayAgain()
         {
             Console.WriteLine("Would you like to play again?\nEnter 'yes' or 'no'.");
-            string again = Console.ReadLine();
+            string again = Console.ReadLine().ToLower();
             if(again == "yes")
             {
+                Console.Clear();
                 return true;
             }
             return false;
@@ -123,6 +128,11 @@ namespace RockPaperScissors
         {
             player1.ResetWins();
             player2.ResetWins();
+        }
+
+        public void DisplayChoices()
+        {
+            Console.WriteLine(player1.name + " chose " + player1.GetMove() + " and " + player2.GetName() + " chose " + player2.GetMove() + ".");
         }
     }
 }
