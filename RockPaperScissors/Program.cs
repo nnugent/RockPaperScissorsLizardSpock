@@ -7,7 +7,7 @@ namespace RockPaperScissors
         static void Main(string[] args)
         {
             Game game = new Game();
-            game.GetUsers();
+            game.CreatePlayers(game.GetGameMode());
             game.Start();
         }
     }

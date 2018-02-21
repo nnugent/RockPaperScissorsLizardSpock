@@ -8,11 +8,32 @@ namespace RockPaperScissors
     {
         Player player1;
         Player player2;
-        public void GetUsers()
+        public string GetGameMode()
         {
-            Console.WriteLine("Would you like to play 1 player or 2 player?" + System.Environment.NewLine +"Enter 1 or 2.");
-            string choice = Console.ReadLine();
-            if (choice == "1")
+            string choice = "";
+            bool invalidInput = true;
+            while (invalidInput)
+            {
+                Console.WriteLine("Would you like to play 1 player or 2 player?" + Environment.NewLine + "Enter 1 or 2.");
+                choice = Console.ReadLine();
+                if (choice == "1" || choice =="2")
+                {
+                    invalidInput = false;
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Invalid input, try again.");
+                    Console.ReadLine();
+                    Console.Clear();
+                }
+            }
+            return choice;
+        }
+
+        public void CreatePlayers(string numberOfPlayers)
+        {
+            if (numberOfPlayers == "1")
             {
                 player1 = new HumanPlayer();
                 player2 = new ComputerPlayer();
@@ -82,9 +103,7 @@ namespace RockPaperScissors
         public void GetMoves()
         {
             player1.PickMove();
-            Console.Clear();
             player2.PickMove();
-            Console.Clear();
         }
 
         public void DisplayTurnWinner(Player player)
@@ -118,12 +137,27 @@ namespace RockPaperScissors
 
         public bool PlayAgain()
         {
-            Console.WriteLine("Would you like to play again?\nEnter 'yes' or 'no'.");
-            string again = Console.ReadLine().ToLower();
-            if(again == "yes")
+            bool invalidInput = true;
+            string again = "";
+            while (invalidInput)
             {
-                Console.Clear();
-                return true;
+                Console.WriteLine("Would you like to play again?\nEnter 'yes' or 'no'.");
+                again = Console.ReadLine().ToLower();
+                if (again == "yes")
+                {
+                    Console.Clear();
+                    return true;
+                }
+                else if(again == "no")
+                {
+                    return false;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input, try again.");
+                    Console.ReadLine();
+                    Console.Clear();
+                }
             }
             return false;
         }

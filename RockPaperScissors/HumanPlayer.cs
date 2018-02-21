@@ -8,15 +8,32 @@ namespace RockPaperScissors
     {
         public HumanPlayer()
         {
+            Console.Clear();
             Console.WriteLine("What is your name?");
             name = Console.ReadLine();
             wins = 0;
         }
         public override string PickMove()
         {
-            Console.WriteLine("Rock, Paper, Scissors, Lizard, or Spock?");
-            move = Console.ReadLine().ToLower();
-            Console.WriteLine();
+            bool invalidInput = true;
+            while (invalidInput)
+            {
+                Console.Clear();
+                Console.WriteLine("Rock, Paper, Scissors, Lizard, or Spock?");
+                move = Console.ReadLine().ToLower();
+                if (move == "rock" || move == "paper" || move == "scissors" || move == "lizard" || move == "spock")
+                {
+                    invalidInput = false;
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Invalid input, try again.");
+                    Console.ReadLine();
+                    Console.Clear();
+                }
+            }
+            Console.Clear();
             return move;
         }
     }
