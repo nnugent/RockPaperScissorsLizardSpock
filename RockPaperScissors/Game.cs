@@ -48,7 +48,8 @@ namespace RockPaperScissors
         }
         
         public void Start()
-        { 
+        {
+            DisplayOpponents();
             do
             {
                 ResetWins();
@@ -171,6 +172,13 @@ namespace RockPaperScissors
         public void DisplayChoices()
         {
             Console.WriteLine(player1.name + " chose " + player1.GetMove() + " and " + player2.GetName() + " chose " + player2.GetMove() + ".");
+        }
+
+        public void DisplayOpponents()
+        {
+            Console.Clear();
+            Console.WriteLine(player1.GetName() + "   versus   " + player2.GetName());
+            Console.ReadLine();
         }
     }
 }
