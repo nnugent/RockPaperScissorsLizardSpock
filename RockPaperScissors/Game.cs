@@ -19,7 +19,9 @@ namespace RockPaperScissors
             }
             else
             {
+                Console.WriteLine("Player 1:\n");
                 player1 = new HumanPlayer();
+                Console.WriteLine("Player 2:\n");
                 player2 = new HumanPlayer();
             }
         }
@@ -80,7 +82,9 @@ namespace RockPaperScissors
         public void GetMoves()
         {
             player1.PickMove();
+            Console.Clear();
             player2.PickMove();
+            Console.Clear();
         }
 
         public void DisplayTurnWinner(Player player)
