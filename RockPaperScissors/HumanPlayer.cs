@@ -12,7 +12,7 @@ namespace RockPaperScissors
             name = Console.ReadLine();
             wins = 0;
         }
-        public override string GetMove()
+        public override string PickMove()
         {
             Console.WriteLine("Rock, Paper, Scissors, Lizard, or Spock?");
             move = Console.ReadLine();

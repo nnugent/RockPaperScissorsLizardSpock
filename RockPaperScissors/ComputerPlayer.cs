@@ -15,7 +15,7 @@ namespace RockPaperScissors
             name = nameOptions[rng.Next(6)];
         }
 
-        public override string GetMove()
+        public override string PickMove()
         {
             move = moveOptions[rng.Next(5)];
             return move;

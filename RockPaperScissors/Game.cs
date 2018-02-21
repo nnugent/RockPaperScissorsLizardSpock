@@ -26,57 +26,68 @@ namespace RockPaperScissors
         
         public void NextTurn()
         {
-            while(player1.wins < 3 && player2.wins < 3)
+            while(player1.GetWins() < 3 && player2.GetWins() < 3)
             {
-                player1.GetMove();
-                player2.GetMove();
+                GetMoves();
                 CompareMoves();
             }
         }
 
         public void CompareMoves()
         {
-            if (player1.move == player2.move)
+            if (player1.GetMove() == player2.GetMove())
             {
                 Console.WriteLine("DRAW!!! Go again.");
+                NextTurn();
             } 
-            else if (player1.move == "rock" && (player2.move == "scissors" || player2.move == "lizard"))
+            else if (player1.GetMove() == "rock" && (player2.GetMove() == "scissors" || player2.GetMove() == "lizard"))
             {
                 player1.PlayerWin();
-                Console.WriteLine(player1.name + " chose " + player1.move + " and " + player2.name + " chose " + player2.move);
-                Console.WriteLine(player1.name + " won this round! Score: " + player1.name + " " + player1.wins + "  " + player2.name + " " + player2.wins);
+                Console.WriteLine(player1.GetName() + " chose " + player1.GetMove() + " and " + player2.GetName() + " chose " + player2.GetMove());
+                Console.WriteLine(player1.GetName() + " won this round! Score: " + player1.GetName() + " " + player1.wins + "  " + player2.GetName() + " " + player2.wins);
             }
-            else if (player1.move =="paper" && (player2.move == "rock" || player2.move == "spock"))
+            else if (player1.GetMove() =="paper" && (player2.GetMove() == "rock" || player2.GetMove() == "spock"))
             {
                 player1.PlayerWin();
-                Console.WriteLine(player1.name + " chose " + player1.move + " and " + player2.name + " chose " + player2.move);
-                Console.WriteLine(player1.name + " won this round! Score: " + player1.name + " " + player1.wins + "  " + player2.name + " " + player2.wins);
+                Console.WriteLine(player1.GetName() + " chose " + player1.GetMove() + " and " + player2.GetName() + " chose " + player2.GetMove());
+                Console.WriteLine(player1.GetName() + " won this round! Score: " + player1.GetName() + " " + player1.wins + "  " + player2.GetName() + " " + player2.wins);
             }
-            else if (player1.move == "scissors" && (player2.move == "paper" || player2.move == "lizard"))
+            else if (player1.GetMove() == "scissors" && (player2.GetMove() == "paper" || player2.GetMove() == "lizard"))
             {
                 player1.PlayerWin();
-                Console.WriteLine(player1.name + " chose " + player1.move + " and " + player2.name + " chose " + player2.move);
-                Console.WriteLine(player1.name + " won this round! Score: " + player1.name + " " + player1.wins + "  " + player2.name + " " + player2.wins);
+                Console.WriteLine(player1.GetName() + " chose " + player1.GetMove() + " and " + player2.GetName() + " chose " + player2.GetMove());
+                Console.WriteLine(player1.GetName() + " won this round! Score: " + player1.GetName() + " " + player1.wins + "  " + player2.GetName() + " " + player2.wins);
             }
-            else if (player1.move == "lizard" && (player2.move == "spock" || player2.move == "paper"))
+            else if (player1.GetMove() == "lizard" && (player2.GetMove() == "spock" || player2.GetMove() == "paper"))
             {
                 player1.PlayerWin();
-                Console.WriteLine(player1.name + " chose " + player1.move + " and " + player2.name + " chose " + player2.move);
-                Console.WriteLine(player1.name + " won this round! Score: " + player1.name + " " + player1.wins + "  " + player2.name + " " + player2.wins);
+                Console.WriteLine(player1.GetName() + " chose " + player1.GetMove() + " and " + player2.GetName() + " chose " + player2.GetMove());
+                Console.WriteLine(player1.GetName() + " won this round! Score: " + player1.GetName() + " " + player1.wins + "  " + player2.GetName() + " " + player2.wins);
             }
-            else if (player1.move == "spock" && (player2.move == "scissors" || player2.move == "rock"))
+            else if (player1.GetMove() == "spock" && (player2.GetMove() == "scissors" || player2.GetMove() == "rock"))
             {
                 player1.PlayerWin();
-                Console.WriteLine(player1.name + " chose " + player1.move + " and " + player2.name + " chose " + player2.move);
-                Console.WriteLine(player1.name + " won this round! Score: " + player1.name + " " + player1.wins + "  " + player2.name + " " + player2.wins);
+                Console.WriteLine(player1.GetName() + " chose " + player1.GetMove() + " and " + player2.GetName() + " chose " + player2.GetMove());
+                Console.WriteLine(player1.GetName() + " won this round! Score: " + player1.GetName() + " " + player1.wins + "  " + player2.GetName() + " " + player2.wins);
             }
             else
             {
                 player2.PlayerWin();
-                Console.WriteLine(player1.name + " chose " + player1.move + " and " + player2.name + " chose " + player2.move);
-                Console.WriteLine(player2.name + " won this round! Score: " + player1.name + " " + player1.wins + "  " + player2.name + " " + player2.wins);
+                Console.WriteLine(player1.GetName() + " chose " + player1.GetMove() + " and " + player2.GetName() + " chose " + player2.GetMove());
+                Console.WriteLine(player2.GetName() + " won this round! Score: " + player1.GetName() + " " + player1.wins + "  " + player2.GetName() + " " + player2.wins);
             }
             Console.WriteLine("\n\n");
+        }
+        
+        public void GetMoves()
+        {
+            player1.PickMove();
+            player2.PickMove();
+        }
+
+        public void DisplayTurnWinner(Player player)
+        {
+
         }
     }
 }

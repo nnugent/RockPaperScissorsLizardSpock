@@ -12,12 +12,24 @@ namespace RockPaperScissors
 
         public virtual string GetMove()
         {
-            return "";
+            return move;
         }
+
+        public abstract string PickMove();
 
         public void PlayerWin()
         {
             wins++;
+        }
+
+        public string GetName()
+        {
+            return name;
+        }
+
+        public int GetWins()
+        {
+            return wins;
         }
     }
 }
