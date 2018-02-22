@@ -6,9 +6,9 @@ namespace RockPaperScissors
 {
     public abstract class Player
     {
-        public string move;
-        public string name;
-        public int wins;
+        protected string move;
+        protected string name;
+        protected int wins;
 
         public virtual string GetMove()
         {
